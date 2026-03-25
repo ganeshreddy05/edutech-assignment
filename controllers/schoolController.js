@@ -33,7 +33,7 @@ export const addSchool = (req, res) => {
 export const listSchools = (req, res) => {
   const { latitude, longitude } = req.query;
 
-  // ✅ Validation
+  
   if (!latitude || !longitude) {
     return res.status(400).json({
       message: "Latitude and Longitude are required",
@@ -59,7 +59,7 @@ export const listSchools = (req, res) => {
       return { ...school, distance };
     });
 
-    // 🔥 Sort by nearest
+
     schoolsWithDistance.sort((a, b) => a.distance - b.distance);
 
     res.json(schoolsWithDistance);
